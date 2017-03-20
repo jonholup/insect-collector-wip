@@ -9,5 +9,16 @@
     "firebase": "^3.7.2",
     "firebase-admin": "^4.1.3",
     "mongoose": "^4.9.1"
-  }
+  },
+  "name": "insect-collector",
+  "version": "1.0.0",
+  "description": "Discovery App for Students",
+  "main": "index.js",
+  "scripts": {
+  "start": "node server/app.js",
+  "test": "nodemon server/app.js"
+  },
+  "repository": "https://github.com/jonholup/insect-collector.git",
+  "author": "Jonny Holupchinski <jonholup@gmail.com>",
+  "license": "MIT"
 }
