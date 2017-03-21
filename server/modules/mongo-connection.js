@@ -1,5 +1,3 @@
-// unchanged from 'nodeFire'
-
 var mongoose = require('mongoose');
 var connectionString = require('./database-config');
 
