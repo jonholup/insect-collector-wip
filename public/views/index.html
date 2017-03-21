@@ -20,7 +20,7 @@
 </head>
 
 <body ng-app="InsectApp">
-  <header class="text-center" ng-include="'/views/templates/header.html'"></header>
+  <header class="text-center" id="mainHeader" ng-include="'/views/templates/header.html'"></header>
 
   <div ng-controller="LogInController as lic">
       <nav ng-if="lic.userIsLoggedIn" ng-include="'/views/templates/nav.html'"></nav>
