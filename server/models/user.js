@@ -4,8 +4,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
-  email: { type: String, required: true, unique: true },
-  clearanceLevel: { type: Number, required: true, default: 0, min: 0, max: 5 }
+  email: { type: String, required: true, unique: true }
 });
 
 var User = mongoose.model('User', userSchema);

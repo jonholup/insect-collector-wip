@@ -1,21 +1,27 @@
 <!DOCTYPE>
 <html>
-  <head>
-      <title>Insect Collector</title>
-      <script src="../vendors/angular.min.js"></script>
-      <script src="../vendors/angular-route.min.js"></script>
-      <script src="../vendors/firebase.js"></script>
-      <script src="../vendors/angularfire.min.js"></script>
-      <script src="../scripts/config.js"></script>
-      <script src="../scripts/client.js"></script>
-      <script src="../scripts/controllers/login.controller.js"></script>
-  </head>
-  <body ng-app="InsectApp">
-{{2 + 7}}
-    <div ng-if="lic.userIsLoggedIn">
-      <div class="tadaa">
-          
-      </div>
+
+<head>
+  <title>Insect Collector</title>
+  <script src="../vendors/angular.min.js"></script>
+  <script src="../vendors/angular-route.min.js"></script>
+  <script src="../vendors/firebase.js"></script>
+  <script src="../vendors/angularfire.min.js"></script>
+  <script src="../scripts/config.js"></script>
+  <script src="../scripts/client.js"></script>
+  <script src="../scripts/controllers/login.controller.js"></script>
+</head>
+
+<body ng-app="InsectApp">
+  <header class="jumbotron text-center" ng-include="'/views/templates/header.html'"></header>
+  {{2 + 7}}
+
+
+  <div ng-if="lic.userIsLoggedIn">
+    <div>
+
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

@@ -3,7 +3,20 @@ myApp.controller("LogInController", ['InsectFactory', function (InsectFactory, $
     var auth = $firebaseAuth();
     var self = this;
 
-    self.logIn();
+self.logIn = function(){
+    auth.$signInWithPopup("google").then(function(firebaseUser) {
+      console.log("Firebase Authenticated as: ", firebaseUser.user.displayName);
+    }).catch(function(error) {
+      console.log("Authentication failed: ", error);
+    });
+  };
+
+    // This code runs when the user logs out
+function logOut(){
+    auth.$signOut().then(function(){
+      console.log('Logging the user out!');
+    });
+  }
 // This code runs whenever the user changes authentication states
 // e.g. whevenever the user logs in or logs out
 // this is where we put most of our logic so that we don't duplicate

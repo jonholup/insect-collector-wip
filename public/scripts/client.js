@@ -2,7 +2,7 @@ var myApp = angular.module('InsectApp', ['firebase', 'ngRoute']);
 
 myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider
-    .when('/login', {
+    .when('/#/login', {
       templateUrl: '/views/login.html',
       controller: 'LogInController',
       controllerAs: 'lic'
