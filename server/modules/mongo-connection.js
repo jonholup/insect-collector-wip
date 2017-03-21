@@ -13,6 +13,6 @@ var connectToMongoDatabase = function() {
   mongoose.connection.on('error', function (err) {
     console.log('Mongoose failed to connect because error: ', err);
   });
-}
+};
 
 module.exports = { connect: connectToMongoDatabase };

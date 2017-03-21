@@ -10,9 +10,12 @@
       <script src="../scripts/client.js"></script>
 
   </head>
-  <body>
+  <body ng-controller="LogInController as lic">
 
-
-      <div class="tadaa">{{2 + 7}}</div>
+    <div ng-if="lic.userIsLoggedIn">
+      <div class="tadaa">
+          {{2 + 7}}
+      </div>
+    </div>
   </body>
 </html>
