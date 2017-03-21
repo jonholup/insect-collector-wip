@@ -44,12 +44,30 @@ myApp.factory('InsectFactory', ['$http', function($http) {
     });
   }
 
+  function logIn() {
+      auth.$signInWithPopup("google").then(function (firebaseUser) {
+          console.log("Firebase Authenticated as: ", firebaseUser.user.displayName);
+      }).catch(function (error) {
+          console.log("Authentication failed: ", error);
+      });
+  }
+
+    // This code runs when the user logs out
+function logOut(){
+    auth.$signOut().then(function(){
+      console.log('Logging the user out!');
+    });
+  }
+
+
   // this is the public API, if it's not in here, your controller won't see it
   return {
     specimen: specimen,
     getBugs: getBugs,
     addBug: addBug,
     deleteBug: deleteBug,
+    logIn: logIn,
+    logOut: logOut,
     updateEntry: updateEntry
   };
 }]);
