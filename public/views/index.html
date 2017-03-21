@@ -13,14 +13,19 @@
   <script src="../scripts/factories/insect.factory.js"></script>
   <script src="../scripts/controllers/login.controller.js"></script>
   <script src="../scripts/controllers/gallery.controller.js"></script>
+  <link rel="stylesheet" href="../styles/style.css">
+  <link href='//fonts.googleapis.com/css?family=Faster One' rel='stylesheet'>
+  <link href='//fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+
 </head>
 
 <body ng-app="InsectApp">
-  <header class="jumbotron text-center" ng-include="'/views/templates/header.html'"></header>
-  <nav ng-include="'/views/templates/nav.html'"></nav>
+  <header class="text-center" ng-include="'/views/templates/header.html'"></header>
+
   <div ng-controller="LogInController as lic">
-    <button ng-click="lic.logIn()">Log In</button>
-    <button ng-click="lic.logOut()">Log Out</button>
+      <nav ng-if="lic.userIsLoggedIn" ng-include="'/views/templates/nav.html'"></nav>
+    <button ng-if="lic.userIsLoggedOut" ng-click="lic.logIn()" class="g-signin2">Log In</button>
+    
       <div ng-if="lic.userIsLoggedIn">
     welcome
     <div>
@@ -29,9 +34,6 @@
   <main ng-view>
   </main>
 
-
-    </div>
-  </div>
 </body>
 
 </html>

@@ -45,6 +45,7 @@ myApp.factory('InsectFactory', ['$http', function($http) {
     });
   }
 
+  var api = {};
 
 
   // this is the public API, if it's not in here, your controller won't see it
@@ -54,6 +55,7 @@ myApp.factory('InsectFactory', ['$http', function($http) {
     getBugs: getBugs,
     addBug: addBug,
     deleteBug: deleteBug,
-    updateEntry: updateEntry
+    updateEntry: updateEntry,
+    api
   };
 }]);

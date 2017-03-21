@@ -18,7 +18,7 @@ myApp.controller("LogInController", ['InsectFactory', '$firebaseAuth', '$http', 
             console.log('Logging the user out!');
         });
     };
-    
+
     // This code runs whenever the user changes authentication states
     // e.g. whevenever the user logs in or logs out
     // this is where we put most of our logic so that we don't duplicate
@@ -28,5 +28,6 @@ myApp.controller("LogInController", ['InsectFactory', '$firebaseAuth', '$http', 
     
     auth.$onAuthStateChanged(function (firebaseUser) {
         self.userIsLoggedIn = firebaseUser !== null;
+        self.userIsLoggedOut = firebaseUser === null;
     });
 }]);
