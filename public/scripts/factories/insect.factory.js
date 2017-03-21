@@ -1,6 +1,7 @@
 myApp.factory('InsectFactory', ['$http', function($http) {
 
   var specimen = { list: [] };
+  var userEmails = { list: [] };
 
 
   function getBugs() {
@@ -49,6 +50,7 @@ myApp.factory('InsectFactory', ['$http', function($http) {
   // this is the public API, if it's not in here, your controller won't see it
   return {
     specimen: specimen,
+    userEmails: userEmails,
     getBugs: getBugs,
     addBug: addBug,
     deleteBug: deleteBug,

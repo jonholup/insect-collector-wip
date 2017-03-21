@@ -1,9 +1,10 @@
-myApp.controller("LogInController", ['InsectFactory', function (InsectFactory, $firebaseAuth) {
+myApp.controller("LogInController", ['InsectFactory', '$firebaseAuth', '$http', function (InsectFactory, $firebaseAuth, $http) {
     console.log('LogInController was loaded');
     var auth = $firebaseAuth();
     var self = this;
 
 self.logIn = function(){
+    console.log('login function here');
     auth.$signInWithPopup("google").then(function(firebaseUser) {
       console.log("Firebase Authenticated as: ", firebaseUser.user.displayName);
     }).catch(function(error) {
@@ -32,78 +33,3 @@ auth.$onAuthStateChanged(function (firebaseUser) {
     self.userIsLoggedIn = firebaseUser !== null;
 });
 }]);
-
-
-// get request
-// auth.$onAuthStateChanged(function(firebaseUser) {
-
-//   if (firebaseUser) {
-//     // make request for clearance level
-//     // This is where we make our call to our server
-//     firebaseUser.getToken().then(function(idToken){
-//       $http({
-//         method: 'GET',
-//         url: '/privateData/userClearanceLevel',
-//         headers: {
-//           id_token: idToken
-//         }
-//       }).then(function(response){
-//         var userClearanceLevel = response.data.userClearanceLevel;
-//         self.secrecyLevelOptions = [];
-//         for (var i = 1; i <= userClearanceLevel; i++) {
-//           self.secrecyLevelOptions.push(i);
-//         }
-//       });
-//     });
-//   } else {
-//     self.secrecyLevelOptions = [];
-//   }
-
-// });
-
-function getAllSecretsAtCorrectLevel(firebaseUser) {
-    // firebaseUser will be null if not logged in
-    if (firebaseUser) {
-        // This is where we make our call to our server
-        firebaseUser.getToken().then(function (idToken) {
-            $http({
-                method: 'GET',
-                url: '/privateData',
-                headers: {
-                    id_token: idToken
-                }
-            }).then(function (response) {
-                self.secretData = response.data;
-            });
-        });
-    } else {
-        console.log('Not logged in or not authorized.');
-        self.secretData = [];
-    }
-
-}
-
-self.addNewSecret = function (newSecretObject) {
-    var firebaseUser = auth.$getAuth(); // quick way after user is logged in to get current firebase user
-
-    // firebaseUser will be null if not logged in
-    if (firebaseUser) {
-        // This is where we make our call to our server
-        firebaseUser.getToken().then(function (idToken) {
-            $http({
-                method: 'POST',
-                url: '/privateData',
-                data: newSecretObject,
-                headers: {
-                    id_token: idToken
-                }
-            }).then(function (response) {
-                getAllSecretsAtCorrectLevel(firebaseUser);
-            });
-        });
-    } else {
-        console.log('Can not post to database when not logged in.');
-    }
-};
-
-

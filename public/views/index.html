@@ -9,14 +9,21 @@
   <script src="../vendors/angularfire.min.js"></script>
   <script src="../scripts/config.js"></script>
   <script src="../scripts/client.js"></script>
+  <script src="../scripts/factories/insect.factory.js"></script>
   <script src="../scripts/controllers/login.controller.js"></script>
+  <script src="../scripts/controllers/gallery.controller.js"></script>
 </head>
 
 <body ng-app="InsectApp">
   <header class="jumbotron text-center" ng-include="'/views/templates/header.html'"></header>
   {{2 + 7}}
+  <div ng-controller="LogInController as lic">
+  <button ng-click="lic.logIn()">Log In</button>
+  <button ng-click="lic.logOut()">Log Out</button>
+  </div>
 
-
+  <main ng-view>
+    </main>
   <div ng-if="lic.userIsLoggedIn">
     <div>
 
