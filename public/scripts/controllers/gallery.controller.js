@@ -1,6 +1,5 @@
-myApp.controller("GalleryController", ['InsectFactory', '$firebaseAuth', '$http', function (InsectFactory, $firebaseAuth, $http) {
+myApp.controller("GalleryController", ['InsectFactory', '$http', function (InsectFactory, $http) {
     console.log('GalleryController was loaded');
-    var auth = $firebaseAuth();
     var self = this;
 
 
