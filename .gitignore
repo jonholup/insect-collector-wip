@@ -5,3 +5,4 @@ node_modules
 server/firebase-service-account.json
 .env
 .gitignore
+server/insect-collector-ecc676f01d78
