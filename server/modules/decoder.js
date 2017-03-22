@@ -4,7 +4,7 @@
 var admin = require("firebase-admin");
 
 admin.initializeApp({
-  credential: admin.credential.cert("./server/firebase-service-account.json"),
+  credential: admin.credential.cert("../server/firebase-service-account.json"),
   databaseURL: "https://insect-collector.firebaseio.com"
 });
 

@@ -7,11 +7,11 @@ myApp.config(['$routeProvider', function($routeProvider) {
     //   controller: 'LogInController',
     //   controllerAs: 'lic'
     // })
-    // .when('/home', {
-    //   templateUrl: '/views/templates/upload.html',
-    //   controller: 'HomeController',
-    //   controllerAs: 'hc'
-    // })
+    .when('/upload', {
+      templateUrl: '/views/templates/upload.html',
+      controller: 'UploadController',
+      controllerAs: 'uc'
+    })
     .when('/gallery', {
       templateUrl: '/views/templates/gallery.html',
       controller: 'GalleryController',

@@ -13,26 +13,26 @@
   <script src="../scripts/factories/insect.factory.js"></script>
   <script src="../scripts/controllers/login.controller.js"></script>
   <script src="../scripts/controllers/gallery.controller.js"></script>
+  <script src="../scripts/controllers/upload.controller.js"></script>
   <link rel="stylesheet" href="../styles/style.css">
   <link href='//fonts.googleapis.com/css?family=Faster One' rel='stylesheet'>
   <link href='//fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
-
 </head>
 
 <body ng-app="InsectApp">
   <header class="text-center" id="mainHeader" ng-include="'/views/templates/header.html'"></header>
 
   <div ng-controller="LogInController as lic">
-      <nav ng-if="lic.userIsLoggedIn" ng-include="'/views/templates/nav.html'"></nav>
+    <nav ng-if="lic.userIsLoggedIn" ng-include="'/views/templates/nav.html'"></nav>
     <button ng-if="lic.userIsLoggedOut" ng-click="lic.logIn()" class="g-signin2">Log In</button>
-    
-      <div ng-if="lic.userIsLoggedIn">
-    welcome
-    <div>
-  </div>
 
-  <main ng-view>
-  </main>
+    <div ng-if="lic.userIsLoggedIn">
+      welcome
+      <div>
+      </div>
+
+      <main ng-view>
+      </main>
 
 </body>
 

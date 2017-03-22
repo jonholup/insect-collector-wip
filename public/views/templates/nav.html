@@ -1,6 +1,8 @@
 <!-- nav.html -->
-<ul class="navbar navbar-nav" ng-controller="LogInController as lic">
+<ul class="navbar navbar-inverse" ng-controller="LogInController as lic">
+  <div class="container-fluid nav navbar-nav">
   <li><a href="#!upload">Upload</a></li>
   <li><a href="#!gallery">Gallery</a></li>
-  <button ng-click="lic.logOut()">Log Out</button>
+  <button class="btn btn-danger navbar-btn" ng-click="lic.logOut()">Log Out</button>
+  </div>
 </ul>
