@@ -8,7 +8,7 @@ var routes = require('./routes/public');
 var getBug = require('./routes/get-bug.js');
 var Vision = require('@google-cloud/vision');
 var gcloud = require('google-cloud')({
-  keyFilename: './server/insect-collector-ecc676f01d78.json',
+  keyFilename: './server/insect-collector-76b09bf1fbc3.json',
   projectId: 'insect-collector'
 });
 var vision = gcloud.vision();

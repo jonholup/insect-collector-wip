@@ -3,6 +3,8 @@ this is gallery
 <img ng-click="gc.getInfo()" src="../assets/daddylonglegs.jpg" alt="daddylonglegs" class="img-responsive">
 <div class="row">
   <div class="col-md-12">
-    <h2>{{gc.specimen}}</h2>
+    <li ng-repeat="thing in gc.specimen[0]">
+      {{thing}}
+    </li>
   </div>
 </div>

@@ -3,7 +3,7 @@ myApp.controller("GalleryController", ['InsectFactory', '$http', function (Insec
     var self = this;
     self.getInfo = function() {
         InsectFactory.getInfo();
-        self.specimen = InsectFactory.specimen;
+        self.specimen = InsectFactory.specimen.list;
     };
 
 
