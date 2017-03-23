@@ -45,6 +45,17 @@ myApp.factory('InsectFactory', ['$http', function($http) {
     });
   }
 
+    function getInfo() {
+    $http({
+      method: 'GET',
+      url: '/getBug'
+    }).then(function(response) {
+      console.log('response from factory: ', response);
+      console.log('response.data from factory: ', response.data);
+      specimen.list = response.data;
+    });
+  }
+
   var api = {};
 
 
@@ -56,6 +67,7 @@ myApp.factory('InsectFactory', ['$http', function($http) {
     addBug: addBug,
     deleteBug: deleteBug,
     updateEntry: updateEntry,
+    getInfo: getInfo,
     api
   };
 }]);

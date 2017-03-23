@@ -2,7 +2,7 @@
 node_modules
 *.log
 .firebaserc
-server/firebase-service-account.json
 .env
 .gitignore
-server/insect-collector-ecc676f01d78
+server/insect-collector-76b09bf1fbc3.json
+server/firebase-service-account.json

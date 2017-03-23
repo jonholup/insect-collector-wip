@@ -1,11 +1,12 @@
-var projectId = 'insect-collector';
 var express = require('express');
-var app = express();
-var Vision = require('@google-cloud/vision');
 var router = require('express').Router();
 
+var projectId = 'insect-collector';
+var Vision = require('@google-cloud/vision');
 
-app.get('/', function (req, res) {
+
+
+router.get('/', function (req, res) {
     // Instantiates a client
     var visionClient = Vision({
         projectId: projectId
