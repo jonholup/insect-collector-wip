@@ -7,7 +7,7 @@ myApp.factory('InsectFactory', ['$http', function($http) {
   function getBugs() {
     $http({
       method: 'GET',
-      url: '/bugs'
+      url: '/getbug/all'
     }).then(function(response) {
       console.log('response from factory: ', response);
       console.log('response.data from factory: ', response.data);
@@ -56,7 +56,6 @@ myApp.factory('InsectFactory', ['$http', function($http) {
     });
   }
 
-  var api = {};
 
 
   // this is the public API, if it's not in here, your controller won't see it
@@ -67,7 +66,6 @@ myApp.factory('InsectFactory', ['$http', function($http) {
     addBug: addBug,
     deleteBug: deleteBug,
     updateEntry: updateEntry,
-    getInfo: getInfo,
-    api
+    getInfo: getInfo
   };
 }]);

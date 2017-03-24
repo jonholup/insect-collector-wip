@@ -21,12 +21,13 @@ app.get('/', function(req, res){
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
-app.use('/getBug', getBug);
+
 
 mongoConnection.connect();
 
 // Decodes the token in the request header and attaches the decoded token to req.decodedToken on the request.
 // app.use(decoder.token);
+app.use('/getBug', getBug);
 
 /* Whatever you do below this is protected by your authentication. */
 

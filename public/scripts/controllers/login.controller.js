@@ -30,4 +30,6 @@ myApp.controller("LogInController", ['InsectFactory', '$firebaseAuth', '$http', 
         self.userIsLoggedIn = firebaseUser !== null;
         self.userIsLoggedOut = firebaseUser === null;
     });
+
+    
 }]);

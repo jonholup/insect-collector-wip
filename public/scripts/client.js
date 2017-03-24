@@ -1,4 +1,4 @@
-var myApp = angular.module('InsectApp', ['firebase', 'ngRoute']);
+var myApp = angular.module('InsectApp', ['firebase', 'ngRoute', 'ui.bootstrap']);
 
 myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider

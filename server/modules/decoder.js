@@ -1,5 +1,5 @@
 // unchanged from 'nodeFire'
-
+// import router?
 
 var admin = require("firebase-admin");
 
@@ -25,7 +25,13 @@ var tokenDecoder = function(req, res, next){
   if (req.headers.id_token) {
     admin.auth().verifyIdToken(req.headers.id_token).then(function(decodedToken) {
       // Adding the decodedToken to the request so that downstream processes can use it
-      req.decodedToken = decodedToken;
+      // console.log('req');
+      // req.decodedToken = decodedToken;
+      ///// search for user email in database
+      // db.getCollection('users').find({});
+      ///// if it finds one, then add that userId to req.decodedToken.mongoId
+      ///// if it doesn't find one, then add the user to the database, and return that id, then add that userId to req.decodedToken.mongoId
+      ///// when those are done (in the then) call next()
       next();
     })
     .catch(function(error) {

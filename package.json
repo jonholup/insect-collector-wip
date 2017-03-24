@@ -2,7 +2,9 @@
   "dependencies": {
     "@google-cloud/vision": "^0.10.0",
     "angular": "^1.6.3",
+    "angular-animate": "^1.6.3",
     "angular-route": "^1.6.3",
+    "angular-ui-bootstrap": "^2.5.0",
     "angularfire": "^2.3.0",
     "body-parser": "^1.17.1",
     "bootstrap": "^3.3.7",
