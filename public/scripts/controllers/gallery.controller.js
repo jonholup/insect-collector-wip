@@ -14,7 +14,7 @@ self.getBugs();
 
     self.getInfo = function () {
         InsectFactory.getInfo().then(function(data) {
-            self.specimen = data
+            self.specimen = data;
         });
     };
 
