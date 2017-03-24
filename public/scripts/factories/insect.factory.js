@@ -2,16 +2,17 @@ myApp.factory('InsectFactory', ['$http', function($http) {
 
   var specimen = { list: [] };
   var userEmails = { list: [] };
+  var bugs = { list: [] };
 
 
   function getBugs() {
-    $http({
+    return $http({
       method: 'GET',
       url: '/getbug/all'
     }).then(function(response) {
-      console.log('response from factory: ', response);
-      console.log('response.data from factory: ', response.data);
-      specimen.list = response.data;
+      // console.log('response from factory: ', response);
+      // console.log('response.data from factory: ', response.data);
+      return response.data;
     });
   }
 
@@ -46,13 +47,11 @@ myApp.factory('InsectFactory', ['$http', function($http) {
   }
 
     function getInfo() {
-    $http({
+    return $http({
       method: 'GET',
       url: '/getBug'
     }).then(function(response) {
-      console.log('response from factory: ', response);
-      console.log('response.data from factory: ', response.data);
-      specimen.list = response.data;
+      return response.data;
     });
   }
 
@@ -61,6 +60,7 @@ myApp.factory('InsectFactory', ['$http', function($http) {
   // this is the public API, if it's not in here, your controller won't see it
   return {
     specimen: specimen,
+    bugs: bugs,
     userEmails: userEmails,
     getBugs: getBugs,
     addBug: addBug,

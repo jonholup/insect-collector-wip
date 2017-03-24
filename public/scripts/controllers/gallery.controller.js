@@ -2,17 +2,27 @@ myApp.controller("GalleryController", ['InsectFactory', '$http', '$firebaseAuth'
     console.log('GalleryController was loaded');
     var self = this;
     var auth = $firebaseAuth();
-    self.getBugs();
 
-    self.getInfo = function() {
-        InsectFactory.getInfo();
-        self.specimen = InsectFactory.specimen.list;
+    self.getBugs = function () {
+        InsectFactory.getBugs().then(function(data) {
+        self.bugs = data;
+        console.log(self.bugs);
+        });
     };
 
-    
+self.getBugs();
+
+    self.getInfo = function () {
+        InsectFactory.getInfo().then(function(data) {
+            console.log('i promise')
+            self.specimen = data
+        });
+    };
 
 
-// run route to get images from db
+
+
+    // run route to get images from db
     // auth.$onAuthStateChanged(function (firebaseUser) {
     //    if (firebaseUser) {
     //   // make request for clearance level
@@ -36,6 +46,6 @@ myApp.controller("GalleryController", ['InsectFactory', '$http', '$firebaseAuth'
     //   self.secrecyLevelOptions = [];
     // }
 
-  }]);
+}]);
 
 

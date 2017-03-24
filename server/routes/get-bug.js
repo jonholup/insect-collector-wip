@@ -15,6 +15,7 @@ router.get('/', function (req, res) {
     });
 
     var fileName = './public/assets/daddylonglegs.jpg';
+    //fileName = how to pass on imageurl -> not a GET request (or query string data)
 
     // Performs label detection on the image file
     visionClient.detectLabels(fileName)
