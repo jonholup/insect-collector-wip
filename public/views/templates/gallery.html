@@ -1,6 +1,5 @@
 this is gallery
 <div class ="container">
-<img ng-click="gc.getInfo()" src="../assets/daddylonglegs.jpg" alt="daddylonglegs" class="img-responsive">
 <div class="row">
   <div class="col-md-12">
     <li ng-repeat="thing in gc.specimen[0]">
@@ -10,8 +9,8 @@ this is gallery
 {{gc.bugs[1].imageURL}}
   <div style="height: 305px">
     <div uib-carousel active="active" no-wrap="noWrapSlides">
-      <div uib-slide ng-repeat="slide in gc.bugs track by $index" index="$index">
-        <img ng-src="assets/scorpion.jpg" style="margin:auto;">
+      <div class="carousel-img" uib-slide ng-repeat="slide in gc.bugs track by $index" index="$index">
+        <img ng-click="gc.getInfo()"ng-src="{{slide.imageURL}}" style="margin:auto;">
         <div class="carousel-caption">
         </div>
       </div>

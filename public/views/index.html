@@ -6,6 +6,7 @@
   <script src="../vendors/angular.min.js"></script>
   <script src="../vendors/angular-route.min.js"></script>
   <script src="../vendors/angular-animate.min.js"></script>
+  <script src="../vendors/ui-bootstrap.js"></script>
   <script src="../vendors/ui-bootstrap-tpls.js"></script>
   <script src="../vendors/firebase.js"></script>
   <script src="../vendors/angularfire.min.js"></script>
@@ -26,7 +27,7 @@
 
   <div ng-controller="LogInController as lic">
     <nav ng-if="lic.userIsLoggedIn" ng-include="'/views/templates/nav.html'"></nav>
-    <button ng-if="lic.userIsLoggedOut" ng-click="lic.logIn()" class="g-signin2">Log In</button>
+    <button class="col-md-12 text-center" ng-if="lic.userIsLoggedOut" ng-click="lic.logIn()" class="g-signin2">Log In</button>
 
     <div ng-if="lic.userIsLoggedIn">
       welcome

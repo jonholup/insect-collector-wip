@@ -14,7 +14,6 @@ self.getBugs();
 
     self.getInfo = function () {
         InsectFactory.getInfo().then(function(data) {
-            console.log('i promise')
             self.specimen = data
         });
     };
