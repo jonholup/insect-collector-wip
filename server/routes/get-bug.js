@@ -5,11 +5,12 @@ var Vision = require('@google-cloud/vision');
 var User = require('../models/user');
 var Insect = require('../models/insect');
 
-router.get('/', function (req, res) {
+router.post('/', function (req, res) {
     // var userEmail = req.decodedToken.email;
     // console.log(userEmail);
     //if null insert user
     // Instantiates a client
+    console.log('post req.body:', req.body);
     var visionClient = Vision({
         projectId: projectId
     });

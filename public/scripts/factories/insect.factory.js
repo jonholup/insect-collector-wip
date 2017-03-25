@@ -46,10 +46,11 @@ myApp.factory('InsectFactory', ['$http', function($http) {
     });
   }
 
-    function getInfo() {
+    function getInfo(imageURL) {
     return $http({
-      method: 'GET',
-      url: '/getBug'
+      method: 'POST',
+      url: '/getBug',
+      data: imageURL
     }).then(function(response) {
       return response.data;
     });

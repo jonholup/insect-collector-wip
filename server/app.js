@@ -1,4 +1,6 @@
 var express = require('express');
+var multer  = require('multer');
+var upload = multer({ dest: 'uploads/' });
 var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
@@ -21,7 +23,6 @@ app.get('/', function(req, res){
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
-
 
 mongoConnection.connect();
 

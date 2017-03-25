@@ -1,11 +1,5 @@
-this is gallery
 <div class ="container">
-<div class="row">
-  <div class="col-md-12">
-    <li ng-repeat="thing in gc.specimen[0]">
-      {{thing}}
-    </li>
-  </div>
+
 <!--{{gc.bugs[1].imageURL}}-->
   <div style="height: 305px">
     <div uib-carousel active="active" no-wrap="noWrapSlides">
@@ -17,4 +11,10 @@ this is gallery
     </div>
   </div>
 </div>
+<div>
+  <div>
+    <li ng-repeat="thing in gc.specimen[0]">
+      {{thing}}
+    </li>
+  </div>
 </div>
