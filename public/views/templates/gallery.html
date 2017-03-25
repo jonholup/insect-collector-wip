@@ -1,7 +1,7 @@
 <div class ="container">
 
 <!--{{gc.bugs[1].imageURL}}-->
-  <div style="height: 305px">
+  <div id="carousel">
     <div uib-carousel active="active" no-wrap="noWrapSlides">
       <div class="carousel-img" uib-slide ng-repeat="slide in gc.bugs track by $index" index="$index">
         <img ng-click="gc.getInfo()"ng-src="{{slide.imageURL}}" style="margin:auto;">

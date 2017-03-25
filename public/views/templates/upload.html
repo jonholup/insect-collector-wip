@@ -1,5 +1,13 @@
-<form action="/action_page.php">
-  <input type="file" name="pic" accept="image/*">
-  <input ng-model="uc.newBug.description">
-  <input type="submit">
-</form>
+<div class="container-fluid center_div">
+  <form action="/action_page.php">
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea rows="3" ng-model="uc.newBug.description" type="text" class="form-control" id="description" placeholder="Location -- Time -- Weather"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="upload">Upload Image</label>
+      <input id="upload" type="file" name="pic" accept="image/* ">
+      <input type="submit">
+    </div>
+  </form>
+</div>

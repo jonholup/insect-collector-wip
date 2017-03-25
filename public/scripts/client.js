@@ -17,6 +17,9 @@ myApp.config(['$routeProvider', function($routeProvider) {
       controller: 'GalleryController',
       controllerAs: 'gc'
     })
+    .when('/resources', {
+      templateUrl: '/views/templates/resources.html'
+    })
     .otherwise({
       redirectTo: 'login'
     });
