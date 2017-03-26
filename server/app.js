@@ -1,5 +1,5 @@
 var express = require('express');
-var multer  = require('multer');
+var multer = require('multer');
 var upload = multer({ dest: 'uploads/' });
 var app = express();
 var path = require('path');
@@ -17,7 +17,19 @@ var vision = gcloud.vision();
 
 var portDecision = process.env.PORT || 5000;
 
-app.get('/', function(req, res){
+var storage = multer.diskStorage({
+  destination: function (request, file, callback) {
+    callback(null, '/uploads');
+  },
+  filename: function (request, file, callback) {
+    console.log(file);
+    callback(null, file.originalname);
+  }
+});
+
+
+
+app.get('/', function (req, res) {
   res.sendFile(path.resolve('./public/views/index.html'));
 });
 
@@ -32,6 +44,6 @@ app.use('/getBug', getBug);
 
 /* Whatever you do below this is protected by your authentication. */
 
-app.listen(portDecision, function(){
+app.listen(portDecision, function () {
   console.log("Listening on port: ", portDecision);
 });
