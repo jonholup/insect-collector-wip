@@ -2,11 +2,12 @@ var express = require('express');
 var router = require('express').Router();
 var multer = require('multer');
 var upload = multer({ dest: 'uploads/' });
-
 var projectId = 'insect-collector';
 var Vision = require('@google-cloud/vision');
 var User = require('../models/user');
 var Insect = require('../models/insect');
+var path = require('path');
+
 var storage = multer.diskStorage({
     destination: function (request, file, callback) {
         callback(null, '/uploads');
@@ -19,7 +20,7 @@ var storage = multer.diskStorage({
 
 
 router.post('/uploads', upload.single('photo'), function (req, res, next) {
-    console.log(req.body);
+    console.log('req.body:', req.body);
     console.log(req.file);
     var newInsect = {
         description: req.body.description,
@@ -28,9 +29,14 @@ router.post('/uploads', upload.single('photo'), function (req, res, next) {
     };
     Insect.create(newInsect, function (err, next) {
         if (err) {
+            console.log('err', err);
             next(err);
         } else {
-            res.send(newInsect);
+
+            // upload to google bucket
+
+            // res.send(newInsect);
+            res.sendFile(path.resolve('./public/views/index.html'));
         }
     });
 });
