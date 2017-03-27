@@ -10,15 +10,13 @@ myApp.controller("GalleryController", ['InsectFactory', '$http', '$firebaseAuth'
         });
     };
 
-self.getBugs();
-
     self.getInfo = function () {
         InsectFactory.getInfo().then(function(data) {
             self.specimen = data;
         });
     };
 
-
+self.getBugs();
 
 
     // run route to get images from db

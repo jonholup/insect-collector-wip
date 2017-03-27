@@ -3,6 +3,6 @@
 myApp.controller("UploadController", ['InsectFactory', '$http', function (InsectFactory, $http) {
     console.log('UploadController was loaded');
     var self = this;
-
+    var newBug = {};
 }]);
 

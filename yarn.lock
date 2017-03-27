@@ -1682,6 +1682,10 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
+ng-file-upload@^12.2.13:
+  version "12.2.13"
+  resolved "https://registry.yarnpkg.com/ng-file-upload/-/ng-file-upload-12.2.13.tgz#01800f3872e526f95310f8477e99e4f12d0d8d14"
+
 node-forge@^0.6.46:
   version "0.6.49"
   resolved "https://registry.yarnpkg.com/node-forge/-/node-forge-0.6.49.tgz#f1ee95d5d74623938fe19d698aa5a26d54d2f60f"

@@ -1,4 +1,4 @@
-var myApp = angular.module('InsectApp', ['firebase', 'ngRoute', 'ui.bootstrap']);
+var myApp = angular.module('InsectApp', ['firebase', 'ngRoute', 'ui.bootstrap', 'ngFileUpload']);
 
 myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider
@@ -21,6 +21,6 @@ myApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: '/views/templates/resources.html'
     })
     .otherwise({
-      redirectTo: 'login'
+      redirectTo: 'gallery'
     });
 }]);

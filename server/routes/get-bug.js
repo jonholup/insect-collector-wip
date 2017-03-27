@@ -33,6 +33,7 @@ router.post('/uploads', function(request, response) {
 });
 
 router.post('/', function (req, res) {
+    console.log(req.decodedToken);    
     // var userEmail = req.decodedToken.email;
     // console.log(userEmail);
     //if null insert user
