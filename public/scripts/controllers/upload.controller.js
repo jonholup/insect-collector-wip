@@ -4,5 +4,9 @@ myApp.controller("UploadController", ['InsectFactory', '$http', function (Insect
     console.log('UploadController was loaded');
     var self = this;
     var newBug = {};
+    self.submit = function () {
+      console.log('newBug:',newBug);
+      
+    };
 }]);
 

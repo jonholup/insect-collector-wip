@@ -1,39 +1,56 @@
 var express = require('express');
 var router = require('express').Router();
 var multer = require('multer');
-var upload = multer({ dest: 'uploads/' }).single('photo');
+var upload = multer({ dest: 'uploads/' });
+
 var projectId = 'insect-collector';
 var Vision = require('@google-cloud/vision');
 var User = require('../models/user');
 var Insect = require('../models/insect');
 var storage = multer.diskStorage({
-  destination: function (request, file, callback) {
-    callback(null, '/uploads');
-  },
-  filename: function (request, file, callback) {
-    console.log(file);
-    callback(null, file.originalname);
-  }
+    destination: function (request, file, callback) {
+        callback(null, '/uploads');
+    },
+    filename: function (request, file, callback) {
+        console.log(file);
+        callback(null, file.originalname);
+    }
 });
 
 
-
-router.post('/uploads', function(request, response) {
-    console.log(upload);
-    
-  upload(request, response, function(err) {
-  if(err) {
-    console.log('Error Occured');
-    return;
-  }
-  console.log(request.file);
-  response.end('Your File Uploaded');
-  console.log('Photo Uploaded');
-  });
+router.post('/uploads', upload.single('photo'), function (req, res, next) {
+    console.log(req.body);
+    console.log(req.file);
+    var newInsect = {
+        description: req.body.description,
+        file: req.file,
+        created: Date.now(),
+    };
+    Insect.create(newInsect, function (err, next) {
+        if (err) {
+            next(err);
+        } else {
+            res.send(newInsect);
+        }
+    });
 });
+
+// router.post('/uploads', function(request, response) {
+//     console.log(upload);
+
+//   upload(request, response, function(err) {
+//   if(err) {
+//     console.log('Error Occured');
+//     return;
+//   }
+//   console.log(request.file);
+//   response.end('Your File Uploaded');
+//   console.log('Photo Uploaded');
+//   });
+// });
 
 router.post('/', function (req, res) {
-    console.log(req.decodedToken);    
+    console.log(req.decodedToken);
     // var userEmail = req.decodedToken.email;
     // console.log(userEmail);
     //if null insert user
@@ -53,6 +70,9 @@ router.post('/', function (req, res) {
 
             console.log('Labels:');
             labels.forEach(function (label) { console.log(label); });
+            // Database query
+            // if (err) res.sendStatus(500)
+            // else query successful (.then)
             res.send(results);
         });
 });
