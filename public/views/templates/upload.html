@@ -1,14 +1,36 @@
 <div class="container-fluid center_div">
-  <form enctype="multipart/form-data" action="/getbug/uploads" method="post" ng-submit="submit()">
+  <form ng-submit="uc.submit()">
     <div class="form-group">
+      <legend>Nicely place your bug inside....</legend>
       <label for="description">Description</label>
-      <textarea rows="3" ng-model="uc.newBug.description" type="text" class="form-control" id="description" placeholder="Location -- Time -- Weather"></textarea>
-
-    
-      <input type="file" ng-model="uc.newBug.file" name="photo" ngf-select ngf-max-size="25MB" required/>
-      <input type="submit" value="Upload Image" name="submit" />
+      <textarea rows="3" type="text" ng-model="uc.newBug.description" class="form-control" id="description" placeholder="Location -- Time -- Weather"></textarea>
+      <input type="file" ng-model="uc.newBug.file" name="photo" ngf-select multiple ngf-max-size="25MB" required/>
+      <input type="submit" value="Upload Image"/>
     </div>
   </form>
 </div>
 
+<h2>All uploads are here:</h2>
+<ul>
+<!--can this list reference the route 'getBug'?-->
+  <li ng-repeat="bug in getBug">
+    <p>{{bug.name}}</p>
+    <a ng-href='{{bug.file.path + "/" + bug.file.originalname}}'>{{bug.file.originalname}}</a>
+  </li>
+</ul>
+
 {{uc.newBug}}
+
+<!--from stack overflow-->
+<!--<input type="file" ngf-select="onFileSelect($files)" multiple>-->
+<!--
+  <form ng-submit="submit()">
+    <legend>Upload a new file here:</legend>
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" ng-model="upload.name" required/>
+    <br/>
+    <label for="file">File:</label>
+    <input type="file" name="file" id="file" ng-model="upload.file" ngf-select ngf-max-size="25MB" required/>
+    <br/>
+    <input type="submit" value="Submit"/>
+  </form>-->
